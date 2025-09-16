@@ -15,7 +15,7 @@ public static class Program
             
             //-- try again --
             
-            Console.WriteLine("Do you want to try again? (Y/n)");
+            Console.WriteLine("Do you want to try again? (Y/n) ");
             var answer = Console.ReadKey();
             if (answer.Key is ConsoleKey.N) break;
         }
@@ -25,7 +25,7 @@ public static class Program
     {
         while (true)
         {
-            Console.Write("Enter encrypted message:");
+            Console.Write("Enter encrypted message: ");
             var res = Console.ReadLine()!;
             if (!string.IsNullOrEmpty(res) && !res.Any(c => !char.IsLetter(c) && c != ' ')) return res;
         }
@@ -35,7 +35,7 @@ public static class Program
     {
         while (true)
         {
-            Console.Write("Enter shift:");
+            Console.Write("Enter shift: ");
             var res = Console.ReadLine()!;
             if (!string.IsNullOrEmpty(res) && res.Any(char.IsNumber)) return Convert.ToInt32(res);
         }

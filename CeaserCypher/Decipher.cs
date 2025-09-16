@@ -8,15 +8,24 @@ public class Decipher
 
     public string ShiftBy(int shift, string message)
     {
-        var shiftedChars = new char[message!.Length];
+        var shiftedChars = new char[message.Length];
+        
         for (var i = 0; i < message.Length; i++)
         {
-            if(message[i] == ' ') continue;
+            char c = message[i];
             
-            var adjustedShift = shift;
-            if ((char)(message[i] + shift) > 'Z') { adjustedShift = shift - 26; }
+            //if space -> go to next
+            if(message[i] == ' ')
+            {
+                shiftedChars[i] = message[i];
+                continue;
+            }
+            
+            //shift curChar
+            // Shift the character
+            char shiftedChar = (char)(((c - 'A' + shift + 26) % 26) + 'A');
 
-            shiftedChars[i] = (char)(message[i] + adjustedShift);
+            shiftedChars[i] = shiftedChar;
         }
 
         _messageUnlocked = new string(shiftedChars);

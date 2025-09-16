@@ -12,7 +12,7 @@ public class Decipher
         
         for (var i = 0; i < message.Length; i++)
         {
-            char c = message[i];
+            var c = message[i];
             
             //if space -> go to next
             if(message[i] == ' ')
@@ -23,7 +23,7 @@ public class Decipher
             
             //shift curChar
             // Shift the character
-            char shiftedChar = (char)(((c - 'A' + shift + 26) % 26) + 'A');
+            var shiftedChar = (char)(((c - 'A' + shift + 26) % 26) + 'A');
 
             shiftedChars[i] = shiftedChar;
         }
